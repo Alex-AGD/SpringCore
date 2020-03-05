@@ -9,11 +9,23 @@ public class TestSpring {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 //name нашего конф файла resources
                 "applicationContext.xml"
-
         );
         TestBean testBean = context.getBean("testBean", TestBean.class);
         System.out.println(testBean.getName());
         //обязательно нужно закрыть вконце после раб с ClassPathXmlApplicationContext
-        context.close();
+        //context.close();
+
+        Music music = context.getBean("musicBean", Music.class);
+        MusicPlayer musicPlayer = new MusicPlayer(music); //OiC
+        musicPlayer.playMusic();
+
+
+        Music musicRock = context.getBean("musicBeanRock", Music.class);
+        MusicPlayer musicPlayerTwo = new MusicPlayer(musicRock); //OiC
+        musicPlayerTwo.playMusic();
+
     }
+
+
+
 }
