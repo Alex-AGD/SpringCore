@@ -23,6 +23,7 @@ public class TestSpring {
         Music musicRock = context.getBean("musicBeanRock", Music.class);
         MusicPlayer musicPlayerTwo = new MusicPlayer(musicRock); //OiC
         musicPlayerTwo.playMusic();
+        context.close();
 
     }
 
