@@ -15,18 +15,26 @@ public class TestSpring {
         //обязательно нужно закрыть вконце после раб с ClassPathXmlApplicationContext
         //context.close();
 
-        Music music = context.getBean("musicBean", Music.class);
+        Music music = context.getBean("musicBeanClassic", Music.class);
         MusicPlayer musicPlayer = new MusicPlayer(music); //OiC
         musicPlayer.playMusic();
+        //context.close();
 
 
         Music musicRock = context.getBean("musicBeanRock", Music.class);
         MusicPlayer musicPlayerTwo = new MusicPlayer(musicRock); //OiC
         musicPlayerTwo.playMusic();
+        //context.close();
+
+
+        //dependency injection
+        MusicPlayer musicPlayer1 = context.getBean("musicPlayerClassic", MusicPlayer.class);
+        musicPlayer1.playMusic();
+
+        MusicPlayer musicPlayer2 = context.getBean("musicPlayerRock", MusicPlayer.class);
+        musicPlayer2.playMusic();
         context.close();
 
+
     }
-
-
-
 }

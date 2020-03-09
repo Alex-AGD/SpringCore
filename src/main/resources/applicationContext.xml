@@ -12,12 +12,22 @@
         <constructor-arg value="Alex-AGD"/>
     </bean>
 
-    <bean id="musicBean"
+    <bean id="musicBeanClassic"
           class="ru.example.springLearn.ClassicalMusic">
     </bean>
 
     <bean id="musicBeanRock"
           class="ru.example.springLearn.RockMusic">
+    </bean>
+
+    <bean id="musicPlayerClassic"
+          class="ru.example.springLearn.MusicPlayer">
+        <constructor-arg ref="musicBeanClassic"/>  <!--<ссылка на бин musicBeanClassic (dependency);-->
+    </bean>
+
+    <bean id="musicPlayerRock"
+          class="ru.example.springLearn.MusicPlayer">
+        <constructor-arg ref="musicBeanRock"/>  <!--<ссылка на бин musicBeanRock (dependency);-->
     </bean>
 
 </beans>
