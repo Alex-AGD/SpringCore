@@ -31,10 +31,23 @@ public class TestSpring {
         MusicPlayer musicPlayer1 = context.getBean("musicPlayerClassic", MusicPlayer.class);
         musicPlayer1.playMusic();
 
+
         MusicPlayer musicPlayer2 = context.getBean("musicPlayerRock", MusicPlayer.class);
         musicPlayer2.playMusic();
+        //context.close();
+
+        //dependency injection with setter/getter
+        MusicPlayer musicPlayer3 = context.getBean("musicPlayerClassicSetter", MusicPlayer.class);
+        musicPlayer3.playMusic();
+        System.out.println(musicPlayer3.getName());
+        System.out.println(musicPlayer3.getVolume());
+        //context.close();
+
+        //dependency injection with setter/getter from musicPlayer.properties
+        MusicPlayer musicPlayer4 = context.getBean("musicPlayerClassicSetterFromProperties", MusicPlayer.class);
+        musicPlayer4.playMusic();
+        System.out.println(musicPlayer4.getName());
+        System.out.println(musicPlayer4.getVolume());
         context.close();
-
-
     }
 }

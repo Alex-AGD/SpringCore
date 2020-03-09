@@ -2,10 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:contex="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- путь к нашим знач properties-->
+    <contex:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="testBean"
           class="ru.example.springLearn.TestBean">
@@ -23,11 +27,28 @@
     <bean id="musicPlayerClassic"
           class="ru.example.springLearn.MusicPlayer">
         <constructor-arg ref="musicBeanClassic"/>  <!--<ссылка на бин musicBeanClassic (dependency);-->
+
     </bean>
 
     <bean id="musicPlayerRock"
           class="ru.example.springLearn.MusicPlayer">
         <constructor-arg ref="musicBeanRock"/>  <!--<ссылка на бин musicBeanRock (dependency);-->
+
+
+    </bean>
+
+    <bean id="musicPlayerClassicSetter"
+          class="ru.example.springLearn.MusicPlayer">
+        <property name="music" ref="musicBeanClassic"/>
+        <property name="name" value="Some name"/>
+        <property name="volume" value="50"/>
+    </bean>
+
+    <bean id="musicPlayerClassicSetterFromProperties"
+          class="ru.example.springLearn.MusicPlayer">
+        <property name="music" ref="musicBeanRock"/>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
 
 </beans>
