@@ -48,6 +48,10 @@ public class TestSpring {
         musicPlayer4.playMusic();
         System.out.println(musicPlayer4.getName());
         System.out.println(musicPlayer4.getVolume());
+
+
+        MusicPlayerTask musicPlayerTask = context.getBean("musicPlayerTask",MusicPlayerTask.class);
+        musicPlayerTask.playMusicMy();
         context.close();
     }
 }
