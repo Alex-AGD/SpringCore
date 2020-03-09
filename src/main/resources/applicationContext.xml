@@ -46,7 +46,8 @@
 
 
     <bean id="musicPlayerClassic"
-          class="ru.example.springLearn.MusicPlayer">
+          class="ru.example.springLearn.MusicPlayer"
+    scope="prototype">                             <!--default scope singleton-->
         <constructor-arg ref="musicBeanClassic"/>  <!--<ссылка на бин musicBeanClassic (dependency);-->
     </bean>
 
@@ -58,7 +59,7 @@
 
     <bean id="musicPlayerClassicSetter"
           class="ru.example.springLearn.MusicPlayer">
-        <property name="music" ref="musicBeanClassic"/>
+        <property name="music" ref="musicBeanClassic"/>  <!--default scope singleton-->
         <property name="name" value="Some name"/>
         <property name="volume" value="50"/>
     </bean>
