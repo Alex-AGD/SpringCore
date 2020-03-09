@@ -57,9 +57,14 @@ public class TestSpring {
         System.out.println(musicPlayer4.getName());
         System.out.println(musicPlayer4.getVolume());
 
-
+        //Home task (list playMusic)
         MusicPlayerTask musicPlayerTask = context.getBean("musicPlayerTask",MusicPlayerTask.class);
         musicPlayerTask.playMusicMy();
-        context.close();
+        //context.close();
+
+
+        //default singleton without scope
+        ClassicalMusic classicalMusic = context.getBean("musicBeanClassic",ClassicalMusic.class);
+        System.out.println(classicalMusic.getSong());
     }
 }

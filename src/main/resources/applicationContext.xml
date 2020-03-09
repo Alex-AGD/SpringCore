@@ -33,8 +33,11 @@
     </bean>
 
     <bean id="musicBeanClassic"
-          class="ru.example.springLearn.ClassicalMusic">
-    </bean>
+          class="ru.example.springLearn.ClassicalMusic"
+    init-method="doMyInit"
+    destroy-method="doMyDestroy"
+    factory-method="getClassicalMusic">  <!--new obj from method-->
+    </bean>                      <!--start and destroy Spring app-->
 
     <bean id="musicBeanRock"
           class="ru.example.springLearn.RockMusic">

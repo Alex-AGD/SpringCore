@@ -1,6 +1,12 @@
 package ru.example.springLearn;
 
 public class ClassicalMusic implements Music{
+    private ClassicalMusic(){
+    }
+    public static ClassicalMusic getClassicalMusic(){  //new obj from method
+        return new ClassicalMusic();
+    }
+
     public void doMyInit(){
         System.out.println("Doing my initialization");
     }
