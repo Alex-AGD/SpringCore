@@ -32,16 +32,16 @@
         <constructor-arg value="Alex-AGD"/>
     </bean>
 
-    <bean id="musicBeanClassic"
+<!--    <bean id="musicBeanClassic"
           class="ru.example.springLearn.ClassicalMusic"
           init-method="doMyInit"
           destroy-method="doMyDestroy"
-          factory-method="getClassicalMusic">  <!--new obj from method-->
-    </bean>                      <!--start and destroy Spring app-->
+          factory-method="getClassicalMusic">  &lt;!&ndash;new obj from method&ndash;&gt;
+    </bean>                      &lt;!&ndash;start and destroy Spring app&ndash;&gt;-->
 
-    <bean id="musicBeanRock"
+<!--    <bean id="musicBeanRock"
           class="ru.example.springLearn.RockMusic">
-    </bean>
+    </bean>-->
 
 <!--    <bean id="musicBeanTrance"
           class="ru.example.springLearn.TranceMusic">

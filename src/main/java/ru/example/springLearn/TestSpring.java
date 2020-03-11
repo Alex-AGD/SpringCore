@@ -12,7 +12,7 @@ public class TestSpring {
                 //name нашего конф файла resources
                 "applicationContext.xml"
         );
-        TestBean testBean = context.getBean("testBean", TestBean.class);
+ /*       TestBean testBean = context.getBean("testBean", TestBean.class);
         System.out.println(testBean.getName());
         //обязательно нужно закрыть вконце после раб с ClassPathXmlApplicationContext
         //context.close();
@@ -72,7 +72,15 @@ public class TestSpring {
 
         Music music1 = context.getBean("musicBeanTrance", Music.class);
         MusicPlayer musicPlayer6 = new MusicPlayer(music1);
-        musicPlayer6.playMusic();
-        context.close();
+        musicPlayer6.playMusic();*/
+
+
+        MusicPlayerTask musicPlayerTask1 = context.getBean("musicPlayerTask",MusicPlayerTask.class);
+        musicPlayerTask1.playMusicMy();
+        musicPlayerTask1.playMusicAutowired();
+
+
+        Computer computer = context.getBean("computer",Computer.class);
+        System.out.println(computer);
     }
 }
