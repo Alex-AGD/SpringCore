@@ -3,6 +3,8 @@ package ru.example.springLearn;
 import com.sun.org.apache.bcel.internal.util.ClassPath;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 public class TestSpring {
     public static void main(String[] args) {
         //ClassPath ислз из depend spring-context pom.xml
@@ -58,13 +60,19 @@ public class TestSpring {
         System.out.println(musicPlayer4.getVolume());
 
         //Home task (list playMusic)
-        MusicPlayerTask musicPlayerTask = context.getBean("musicPlayerTask",MusicPlayerTask.class);
+        MusicPlayerTask musicPlayerTask = context.getBean("musicPlayerTask", MusicPlayerTask.class);
         musicPlayerTask.playMusicMy();
         //context.close();
 
 
         //default singleton without scope
-        ClassicalMusic classicalMusic = context.getBean("musicBeanClassic",ClassicalMusic.class);
+        ClassicalMusic classicalMusic = context.getBean("musicBeanClassic", ClassicalMusic.class);
         System.out.println(classicalMusic.getSong());
+
+
+        Music music1 = context.getBean("musicBeanTrance", Music.class);
+        MusicPlayer musicPlayer6 = new MusicPlayer(music1);
+        musicPlayer6.playMusic();
+        context.close();
     }
 }

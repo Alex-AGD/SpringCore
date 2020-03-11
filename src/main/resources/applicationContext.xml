@@ -13,7 +13,7 @@
 
     <!-- путь к нашим знач properties-->
     <contex:property-placeholder location="classpath:musicPlayer.properties"/>
-
+    <context:component-scan base-package="ru.example.springLearn"/>
 
     <bean id="musicPlayerTask"
           class="ru.example.springLearn.MusicPlayerTask">
@@ -34,23 +34,23 @@
 
     <bean id="musicBeanClassic"
           class="ru.example.springLearn.ClassicalMusic"
-    init-method="doMyInit"
-    destroy-method="doMyDestroy"
-    factory-method="getClassicalMusic">  <!--new obj from method-->
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic">  <!--new obj from method-->
     </bean>                      <!--start and destroy Spring app-->
 
     <bean id="musicBeanRock"
           class="ru.example.springLearn.RockMusic">
     </bean>
 
-    <bean id="musicBeanTrance"
+<!--    <bean id="musicBeanTrance"
           class="ru.example.springLearn.TranceMusic">
-    </bean>
+    </bean>-->
 
 
     <bean id="musicPlayerClassic"
           class="ru.example.springLearn.MusicPlayer"
-    scope="prototype">                             <!--default scope singleton-->
+          scope="prototype">                             <!--default scope singleton-->
         <constructor-arg ref="musicBeanClassic"/>  <!--<ссылка на бин musicBeanClassic (dependency);-->
     </bean>
 

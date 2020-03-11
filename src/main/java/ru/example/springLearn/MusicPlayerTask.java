@@ -1,12 +1,16 @@
 package ru.example.springLearn;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class MusicPlayerTask {
     private List<Music> musicList = new ArrayList<>();
     private String name;
     private int volume;
+
 
     public List<Music> getMusicList() {
         return musicList;
@@ -39,6 +43,7 @@ public class MusicPlayerTask {
             System.out.println("Playing: " + music.getSong());
         }
     }
+
 }
 
 
