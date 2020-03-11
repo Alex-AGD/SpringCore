@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 @Component
-public class MusicPlayer {
+public class MusicPlayerMy {
     private Music music;
     private String name;
     private int volume;
@@ -36,11 +36,11 @@ public class MusicPlayer {
     }
 
     //IoC
-    public MusicPlayer(Music music) {
+    public MusicPlayerMy(Music music) {
         this.music = music;
     }
 
-    public MusicPlayer(){}
+    public MusicPlayerMy(){}
 
 
     public void playMusic() {
