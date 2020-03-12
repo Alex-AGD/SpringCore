@@ -1,9 +1,7 @@
 package ru.example.springLearn;
 
-import com.sun.org.apache.bcel.internal.util.ClassPath;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.List;
 
 public class TestSpring {
     public static void main(String[] args) {
@@ -76,11 +74,19 @@ public class TestSpring {
 
 
         MusicPlayerTask musicPlayerTask1 = context.getBean("musicPlayerTask",MusicPlayerTask.class);
-        musicPlayerTask1.playMusicMy();
+        //musicPlayerTask1.playMusicMy();
         musicPlayerTask1.playMusicAutowired();
+        System.out.println(musicPlayerTask1.getVolume());
+        System.out.println(musicPlayerTask1.getName());
+
+        ClassicalMusic classicalMusic1 = context.getBean("musicBeanClassic", ClassicalMusic.class);
+        ClassicalMusic classicalMusic2 = context.getBean("musicBeanClassic", ClassicalMusic.class);
+
+        System.out.println(classicalMusic1 == classicalMusic2);
 
 
-        Computer computer = context.getBean("computer",Computer.class);
-        System.out.println(computer);
+/*        Computer computer = context.getBean("computer",Computer.class);
+        System.out.println(computer);*/
+
     }
 }

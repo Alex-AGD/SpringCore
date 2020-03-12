@@ -1,4 +1,4 @@
-package springcourse;
+package Task.springcourse;
 
 import org.springframework.stereotype.Component;
 

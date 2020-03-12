@@ -2,15 +2,21 @@ package ru.example.springLearn;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
+//@Scope("prototype")
 public class MusicPlayerTask {
     private List<Music> musicList = new ArrayList<>();
+    @Value("${musicPlayer.name}")
     private String name;
+    @Value("${musicPlayer.volume}")
     private int volume;
     private ClassicalMusic classicalMusic;
     private RockMusic rockMusic;
