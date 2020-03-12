@@ -1,15 +1,25 @@
 package ru.example.springLearn;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.lang.annotation.Annotation;
 
 
 public class TestSpring {
     public static void main(String[] args) {
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(SpringConfig.class);
+
+
         //ClassPath ислз из depend spring-context pom.xml
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+/*        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 //name нашего конф файла resources
                 "applicationContext.xml"
-        );
+        );*
+
+
+
  /*       TestBean testBean = context.getBean("testBean", TestBean.class);
         System.out.println(testBean.getName());
         //обязательно нужно закрыть вконце после раб с ClassPathXmlApplicationContext
@@ -75,14 +85,15 @@ public class TestSpring {
 
         MusicPlayerTask musicPlayerTask1 = context.getBean("musicPlayerTask",MusicPlayerTask.class);
         //musicPlayerTask1.playMusicMy();
-        musicPlayerTask1.playMusicAutowired();
-        System.out.println(musicPlayerTask1.getVolume());
-        System.out.println(musicPlayerTask1.getName());
+        musicPlayerTask1.playMusic(MusicGenre.CLASSICAL);
+        musicPlayerTask1.playMusic(MusicGenre.ROCK);
+        musicPlayerTask1.playMusic(MusicGenre.TRANCE);
 
+/*
         ClassicalMusic classicalMusic1 = context.getBean("musicBeanClassic", ClassicalMusic.class);
         ClassicalMusic classicalMusic2 = context.getBean("musicBeanClassic", ClassicalMusic.class);
 
-        System.out.println(classicalMusic1 == classicalMusic2);
+        System.out.println(classicalMusic1 == classicalMusic2);*/
 
 
 /*        Computer computer = context.getBean("computer",Computer.class);

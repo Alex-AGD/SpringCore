@@ -1,14 +1,22 @@
 package ru.example.springLearn;
 
-import org.springframework.stereotype.Component;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.annotation.PostConstruct;
-
-@Component("musicBeanRock")
-
+//@Component("musicBeanRock")
 public class RockMusic implements Music {
+    private List<String> songs = new ArrayList<>();
+        {
+            songs.add("Wind cries Mary");
+            songs.add("Paint it black");
+            songs.add("Can't seem to make you mine");
+        }
     @Override
-    public String getSong() {
-        return "Wind Alive";
+    public List<String> getSongs() {
+        return songs;
+    }
+    @Override
+    public List<String> getSong() {
+        return songs;
     }
 }
